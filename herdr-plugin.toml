@@ -1,0 +1,53 @@
+id = "radres.call-me"
+name = "/call-me"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+description = "Ring your real phone when an agent is blocked, answer by voice, and the answer types itself into the agent."
+platforms = ["linux", "macos", "windows"]
+
+# No [[build]] block on purpose. Zero dependencies and no build step, so
+# `herdr plugin install` needs no toolchain and shows nothing scary to confirm.
+
+# The whole product in one hook. herdr already classifies each pane as idle /
+# working / blocked / done; `blocked` means it recognised a real approval or
+# question UI, which is exactly the moment a human is needed.
+[[events]]
+on = "pane.agent_status_changed"
+command = ["node", "on-status.mjs"]
+
+# Ring me about the focused pane right now, whatever state it is in.
+[[actions]]
+id = "ask"
+title = "Call me about this agent"
+command = ["node", "ask.mjs"]
+
+# One-way: put this pane's state on my phone, no ring, no answer.
+[[actions]]
+id = "text"
+title = "Text me this agent's state"
+command = ["node", "text.mjs"]
+
+[[actions]]
+id = "toggle"
+title = "Toggle /call-me auto-ring"
+command = ["node", "toggle.mjs"]
+
+[[actions]]
+id = "on"
+title = "Enable /call-me auto-ring"
+command = ["node", "toggle.mjs", "on"]
+
+[[actions]]
+id = "off"
+title = "Disable /call-me auto-ring"
+command = ["node", "toggle.mjs", "off"]
+
+# Pairing needs real terminal input, and a popup gets it without disturbing the
+# tiled layout. It ends by ringing the phone, so setup proves itself.
+[[panes]]
+id = "pair"
+title = "/call-me setup"
+placement = "popup"
+width = "80%"
+height = 26
+command = ["node", "pair.mjs"]
