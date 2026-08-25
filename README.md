@@ -39,7 +39,7 @@ That pane links you to the iPhone app, takes the 10-digit number the app
 shows you, and then rings the phone to prove the whole loop works before you
 trust it with anything.
 
-<sub>The app has no ads. Android is in closed testing.</sub>
+<sub>The app has no ads. iPhone only.</sub>
 
 ## Bind it to a key
 
