@@ -35,12 +35,11 @@ No build step, no dependencies, nothing to approve. Then pair your phone:
 herdr plugin pane open --plugin radres.call-me --entrypoint pair
 ```
 
-That pane links you to the free iPhone app, takes the 10-digit number the app
+That pane links you to the iPhone app, takes the 10-digit number the app
 shows you, and then rings the phone to prove the whole loop works before you
 trust it with anything.
 
-<sub>The app is free, has no ads and no subscriptions. Android is in closed
-testing.</sub>
+<sub>The app has no ads. Android is in closed testing.</sub>
 
 ## Bind it to a key
 

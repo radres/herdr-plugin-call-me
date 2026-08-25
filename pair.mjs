@@ -63,7 +63,7 @@ async function main() {
   dim(`  state       ${stateDir()}`);
 
   heading("1. Get the app");
-  stdout.write(`  Install /call-me on your iPhone, free:\n`);
+  stdout.write(`  Install /call-me on your iPhone:\n`);
   stdout.write(`  ${APP_LINK}\n`);
   dim("  The app shows you a 10-digit number. That is what you type below.");
 
