@@ -1,6 +1,6 @@
 id = "radres.call-me"
 name = "/call-me"
-version = "0.1.0"
+version = "0.1.1"
 min_herdr_version = "0.8.0"
 description = "Ring your real phone when an agent is blocked, answer by voice, and the answer types itself into the agent."
 platforms = ["linux", "macos", "windows"]

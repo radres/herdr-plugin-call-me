@@ -325,7 +325,7 @@ describe("condense", () => {
     assert.match(script, /What should it do/);
   });
 
-  it("fits a spoken question inside the server's 600-char ceiling", () => {
+  it("fits a spoken question inside the server's spoken ceiling", () => {
     const script = context.blockedScript({ agent: "claude", workspace: "call-me" }, claudePrompt);
     assert.ok(
       api.clamp(script, api.MAX_QUESTION_CHARS).length <= api.MAX_QUESTION_CHARS,
@@ -358,7 +358,7 @@ describe("api limits", () => {
   });
 
   it("mirrors the server's own ceilings", () => {
-    assert.equal(api.MAX_QUESTION_CHARS, 600);
+    assert.equal(api.MAX_QUESTION_CHARS, 2000);
     assert.equal(api.MAX_MESSAGE_CHARS, 2000);
     assert.equal(api.MIN_CALL_WAIT_S, 30);
     assert.equal(api.MAX_CALL_WAIT_S, 300);
