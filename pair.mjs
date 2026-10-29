@@ -4,7 +4,7 @@
  * Opens as a session-modal popup, so it gets real terminal input without
  * disturbing the tiled layout. It writes the number to `~/.aiphone/config.json`
  * -- the one home the whole /call-me family reads -- so pairing here also pairs
- * the iPhone app's other agents, and vice versa.
+ * the phone app's other agents, and vice versa.
  *
  * It ends by ringing the phone. A pairing flow that only writes a config file
  * teaches the user nothing about whether the loop works; one that makes the
@@ -27,7 +27,8 @@ import {
 import { placeCall } from "./lib/api.mjs";
 
 /** Countable install link (302 -> App Store), so herdr installs are attributable. */
-const APP_LINK = "https://serdaroztetik.com/aiphone/go/herdr";
+const APP_LINK = "https://callmemcp.com/go/herdr";
+const PLAY_LINK = "https://callmemcp.com/go/play-herdr";
 
 const BOLD = "\u001b[1m";
 const DIM = "\u001b[2m";
@@ -63,8 +64,9 @@ async function main() {
   dim(`  state       ${stateDir()}`);
 
   heading("1. Get the app");
-  stdout.write(`  Install /call-me on your iPhone:\n`);
-  stdout.write(`  ${APP_LINK}\n`);
+  stdout.write(`  Install /call-me on your phone:\n`);
+  stdout.write(`  iPhone   ${APP_LINK}\n`);
+  stdout.write(`  Android  ${PLAY_LINK}\n`);
   dim("  The app shows you a 10-digit number. That is what you type below.");
 
   heading("2. Pair this machine");
